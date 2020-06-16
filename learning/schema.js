@@ -8,6 +8,7 @@ type Friend{
     gender: String
     language: String
     email: String
+    age: Int
 }
  
 input FriendInput {
@@ -17,6 +18,7 @@ input FriendInput {
     gender: String
     language: String
     email: String
+    age: Int
 }
 
 type Mutation {
