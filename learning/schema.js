@@ -23,7 +23,7 @@ type Mutation {
     createFriend(input: FriendInput): Friend
 } 
  type Query{
-     friend: Friend
+     getFriend(id:ID): Friend
  }`)
 
 export default schema;
