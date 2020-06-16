@@ -9,6 +9,7 @@ type Friend{
     language: String
     email: String
     age: Int
+    contacts:[contact]
 }
  
 input FriendInput {
@@ -18,9 +19,17 @@ input FriendInput {
     gender: Gender
     language: String
     email: String
-    age: Int
+    age: Int,
+    contacts: [contactsInput]
 }
-
+type contact {
+    firstName:String
+    lastName: String
+}
+input contactsInput {
+    firstName: String
+    lastName: String
+}
 type Mutation {
     createFriend(input: FriendInput): Friend
 } 
