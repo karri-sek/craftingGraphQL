@@ -12,16 +12,18 @@ class Friend {
 }
 const friendDatabase = {}
 
-const resolvers = {
-    getFriend: ({id}) => {
-        return friendDatabase[id]
-        
-    },
-    createFriend: ({ input }) => {
-        let id = require('crypto').randomBytes(10).toString('hex');
-        friendDatabase[id] = input;
-        return new Friend(id, input);
-    }
-}
+export const resolvers = {
+    Query: {
+        getFriend: (_, { id }) => {
+            return friendDatabase[id]
 
-export default resolvers;
+        }
+    },
+    Mutation: {
+        createFriend: (_, { input }) => {
+            let id = require('crypto').randomBytes(10).toString('hex');
+            friendDatabase[id] = input;
+            return new Friend(id, input);
+        },
+    },
+}

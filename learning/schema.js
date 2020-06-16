@@ -1,6 +1,7 @@
-import { buildSchema } from 'graphql';
+import { resolvers } from './resolvers';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
-const schema = buildSchema(`
+const typeDefs = `
 type Friend{
     id: ID
     firstName: String
@@ -40,6 +41,7 @@ enum Gender {
 }
  type Query{
      getFriend(id:ID): Friend
- }`)
+ }
+ `;
 
-export default schema;
+export const schema = makeExecutableSchema({ typeDefs, resolvers });
