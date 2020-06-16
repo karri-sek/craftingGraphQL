@@ -15,7 +15,7 @@ input FriendInput {
     id: ID
     firstName: String
     lastName: String
-    gender: String
+    gender: Gender
     language: String
     email: String
     age: Int
@@ -24,6 +24,11 @@ input FriendInput {
 type Mutation {
     createFriend(input: FriendInput): Friend
 } 
+enum Gender {
+    MALE
+    FEMALE
+    OTHER
+}
  type Query{
      getFriend(id:ID): Friend
  }`)
