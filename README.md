@@ -13,7 +13,9 @@ Query for alias:
     age
   }
 }
+```
 Fragment: 
+```
 {
   one:getOneFriend(id: "5eeb481397f0841e53575447") {
    ...friendFragment
@@ -28,3 +30,14 @@ fragment friendFragment on Friend{
   firstName,
   lastName
 }
+```
+createFriend
+```mutation {
+  createFriend(input: {firstName: "first", lastName: "babu", gender: FEMALE, language: "english", email: "b@b.com"}) {
+    id
+    firstName
+    lastName
+  }
+}
+```
+
