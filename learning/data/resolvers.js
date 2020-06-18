@@ -1,9 +1,12 @@
-import {Friends} from './dbConnectors';
+import {Friends, Aliens} from './dbConnectors';
 
 export const resolvers = {
     Query: {
         getFriend: (_, { id }) => {
             return friendDatabase[id]
+        },
+        getAliens: () =>{
+            return Aliens.findAll()
         }
     },
     Mutation: {

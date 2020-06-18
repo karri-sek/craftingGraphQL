@@ -50,6 +50,7 @@ enum Gender {
 }
  type Query{
      getFriend(id:ID): Friend
+     getAliens: [Alien]
  }
  `;
 
