@@ -73,6 +73,38 @@ mutation{
     lastName
   }
 }
+
+mutation{
+  deleteFriend(id:"5eeb4820becb671e6add0b0a")
+}
+mutation{
+  updateFriend(input:{
+    id: "5eeb481397f0841e53575447",
+    lastName: "Updated Second Name",
+    firstName: "Updated first name",
+    gender: FEMALE,
+    language: "english",
+    email: "b@b.com"
+  }){
+    id, 
+    firstName,
+    lastName
+  }
+}
+
+mutation{
+  createFriend(input:{
+    firstName: "firstRecord",
+    lastName: "second",
+    gender: FEMALE,
+    language: "english",
+    email: "b@b.com"
+  }){
+    id, 
+    firstName,
+    lastName
+  }
+}
 ```
 
 
