@@ -5,9 +5,7 @@ import casual from 'casual';
 
 // Mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/friends', {
-    useMongoClient: true
-});
+mongoose.connect('mongodb://localhost/friends');
 
 const friendSchema = new mongoose.Schema({
     firstName: {

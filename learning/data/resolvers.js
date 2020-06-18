@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import Friends from './dbConnectors';
+import {Friends} from './dbConnectors';
 
 export const resolvers = {
     Query: {
@@ -22,13 +21,10 @@ export const resolvers = {
             newFriend.id = newFriend._id;
             return new Promise((resolve, reject)=>{
                 newFriend.save((err)=>{
-                    if(err) reject(err)
+                    if(err) reject("error",err)
                     else resolve(newFriend)
                 })
-            })
-            let id = require('crypto').randomBytes(10).toString('hex');
-            friendDatabase[id] = input;
-            return new Friend(id, input);
+            });
         },
     },
 }
