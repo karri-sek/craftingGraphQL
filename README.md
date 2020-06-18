@@ -40,4 +40,14 @@ createFriend
   }
 }
 ```
+getOneFriend
+```
+query {
+  getOneFriend(id:"fe63667f08800a72acbe"),{
+    firstName,
+    lastName
+  }
+}
+```
+
 
