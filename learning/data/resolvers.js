@@ -1,11 +1,19 @@
-import {Friends, Aliens} from './dbConnectors';
+import { Friends, Aliens } from './dbConnectors';
 
 export const resolvers = {
     Query: {
         getFriend: (_, { id }) => {
             return friendDatabase[id]
         },
-        getAliens: () =>{
+        getOneFriend: (root, { id }) => {
+            return new Promise((resolve, reject) => {
+                Friends.findById(id, (err, friend) => {
+                    if (err) reject(err)
+                    else resolve(friend)
+                })
+            })
+        },
+        getAliens: () => {
             return Aliens.findAll()
         }
     },
@@ -17,29 +25,29 @@ export const resolvers = {
                 gender: input.gender,
                 language: input.language,
                 age: input.age,
-                contacts:input.contacts,
+                contacts: input.contacts,
                 email: input.email
             });
             newFriend.id = newFriend._id;
-            return new Promise((resolve, reject)=>{
-                newFriend.save((err)=>{
-                    if(err) reject("error",err)
+            return new Promise((resolve, reject) => {
+                newFriend.save((err) => {
+                    if (err) reject("error", err)
                     else resolve(newFriend)
                 })
             });
         },
-        updateFriend:(root, { input}) => {
-            return new Promise((resolve, reject)=>{
-                Friends.findOneAndUpdate({_id:input.id}, input, {new: true}, (err, friend) =>{
-                    if(err) reject("error",err)
+        updateFriend: (root, { input }) => {
+            return new Promise((resolve, reject) => {
+                Friends.findOneAndUpdate({ _id: input.id }, input, { new: true }, (err, friend) => {
+                    if (err) reject("error", err)
                     else resolve(friend)
                 })
             })
         },
-        deleteFriend:(root, {id}) => {
-            return new Promise((resolve, reject)=>{
-                Friends.remove({_id: id}, (err) =>{
-                    if(err) reject("error",err)
+        deleteFriend: (root, { id }) => {
+            return new Promise((resolve, reject) => {
+                Friends.remove({ _id: id }, (err) => {
+                    if (err) reject("error", err)
                     else resolve("successfully deleted")
                 })
             });
