@@ -12,6 +12,13 @@ type Friend{
     age: Int
     contacts:[contact]
 }
+
+type Alien {
+    id: ID,
+    firstName: String
+    lastName: String
+    planet: String
+}
  
 input FriendInput {
     id: ID
