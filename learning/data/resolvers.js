@@ -4,7 +4,6 @@ export const resolvers = {
     Query: {
         getFriend: (_, { id }) => {
             return friendDatabase[id]
-
         }
     },
     Mutation: {
@@ -26,5 +25,13 @@ export const resolvers = {
                 })
             });
         },
+        updateFriend:(root, { input}) => {
+            return new Promise((resolve, reject)=>{
+                Friends.findOneAndUpdate({_id:input.id}, input, {new: true}, (err, friend) =>{
+                    if(err) reject("error",err)
+                    else resolve(friend)
+                })
+            })
+        }
     },
 }

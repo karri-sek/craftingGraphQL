@@ -40,6 +40,7 @@ input contactsInput {
 }
 type Mutation {
     createFriend(input: FriendInput): Friend
+    updateFriend(input: FriendInput): Friend
 } 
 enum Gender {
     MALE
