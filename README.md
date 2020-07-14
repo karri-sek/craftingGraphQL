@@ -1,6 +1,6 @@
 # craftingGraphQL
 ### how to start
-* Step 1: Go the root directory learning
+* Step 1: Go the root directory ```graphQl_Learning```
 * Step 2: type ```yarn start``` on command line.
 * Step 3: Go to the browser and access the URL 
 
